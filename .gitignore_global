@@ -1,0 +1,13 @@
+# ignore os arquivos .prefs
+*.prefs
+
+# ignore as pastas de configurações
+settings
+bin
+
+# ignore os arquivos .class
+*.class
+
+# ignore os arquivos classpath e project
+*.classpath
+*.project
