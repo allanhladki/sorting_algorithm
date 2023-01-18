@@ -7,7 +7,7 @@ public class StraightInsertion extends SortingAlgorithms {
 		
 		this.array = super.getUnsortedArray();
 		
-		for(int i = 0 ; i < this.array.length ; i++) {
+		for(int i = 1 ; i < this.array.length ; i++) {
 			
 			int valorAtual = this.array[i];
 			int posicao = i;
