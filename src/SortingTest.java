@@ -6,15 +6,19 @@ public class SortingTest {
 		
 		int[] array = {3,1,2,5,4,6,8,7};	// criação do array
 		
-		SortingAlgorithms sortArray = new SortingAlgorithms(); // criação de um objeto do tipo SortingAlgorithms
+		StraightInsertion sortArray = new StraightInsertion(); // criação de um objeto do tipo SortingAlgorithms
 		
-		sortArray.setArrayEntrada(array);
+		sortArray.setUnsortedArray(array);
 		
 		System.out.println("IMPLEMENTAÇÃO INICIAL COM NÚMEROS INTEIROS");
 		System.out.println("O vetor tem " + sortArray.arrayLength() + " números");
-		System.out.print("1 - De forma não ordenada ele é ");
-		sortArray.printArray(); // Uma outra forma de mostrar esse vetor é a seguinte
-		System.out.print("2 - De forma não ordenada ele é " + sortArray.stringArray());
+		
+		System.out.print("1 - De forma NÃO ORDENADA ele é ");
+		sortArray.printUnsortedArray(); // Uma outra forma de mostrar esse vetor é a seguinte
+		System.out.println("2 - De forma NÃO ORDENADA ele é " + sortArray.stringUnsortedArray());
+		
+		sortArray.sort();
+		System.out.println("3 - De forma ORDENADA ele é " + sortArray.stringSortedArray());
 		
 	}
 	
