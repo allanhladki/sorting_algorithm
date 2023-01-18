@@ -15,25 +15,16 @@ public class SortingAlgorithms {
 		return this.unsortedArray.length;
 	}
 	
-	// Método para escrever no console o array de forma agradável
-	public void printArray() {
-		System.out.print("[");
-		for (int i = 0 ; i < arrayLength()-1 ; i++) {
-			System.out.print(this.unsortedArray[i] + " , ");
-		}
-		System.out.println(this.unsortedArray[arrayLength()-1] + "]");
+	// Composição com ManageArray para imprimir string desordenada
+	public void printUnsortedArray() {
+		ManageArray array = new ManageArray(unsortedArray);
+		array.printArray();
 	}
 	
-	// Método para salvar o array em uma string
-	public String stringArray() {
-		String s = "[";
-		
-		for (int i = 0 ; i < arrayLength()-1 ; i++) {
-			s += (this.unsortedArray[i] + " , ");
-		}
-		s += (this.unsortedArray[arrayLength()-1] + "]");
-		
-		return s;
+	// Composição para salvar o array desordenado em uma string
+	public String stringUnsortedArray() {
+		ManageArray array = new ManageArray(unsortedArray);
+		return array.stringArray();
 	}
 
 }
