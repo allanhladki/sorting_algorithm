@@ -4,31 +4,38 @@ public class ShellSorting extends SortingAlgorithms {
 	private int[] array;
 	
 	// method = 0 é o padrão, caso method = 1, tamanhoSublista é dado pelo método de Knuth, h=((3^k)-1)/2
-	public void sort(int method) {
+	public void sort(boolean kmethod) {
 		this.array = super.getUnsortedArray();
 		
 		int tamanhoSublista = this.array.length;
 		
-		while(tamanhoSublista >= 1) {
-			if (method == 0) {
-				tamanhoSublista /= 2;
-			} else if (method == 1) {
-				tamanhoSublista = knuthsMethod(tamanhoSublista);
-			}
+		tamanhoSublista = getTamanhoSublista(kmethod, tamanhoSublista);
+		
+		while (tamanhoSublista >= 1){
 			
 			for (int posicaoInicial = 0; posicaoInicial < tamanhoSublista; posicaoInicial++) {
 				gapInsertionSort(this.array, posicaoInicial, tamanhoSublista);
 			}
+			
+			tamanhoSublista = getTamanhoSublista(kmethod, tamanhoSublista);
 			
 		}
 		
 		super.setSortedArray(this.array);
 	}
 	
-	private int knuthsMethod(int tamanhoSublista) {
-		return (3^( tamanhoSublista ) - 1) / 2;
+	private int knuthsMethod(int h) {
+		Double k = (Math.log( (2*h) + 1)/Math.log(3));
+		return k.intValue();
 	}
 	
+	private int getTamanhoSublista(boolean kmethod, int t) {
+		if (kmethod == true) {
+			t = knuthsMethod(t);
+			return t;
+		}
+		return t/2;
+	}
 	
 	private void gapInsertionSort(int[] array, int posicaoInicial, int gap) {
 		for(int i = gap; i < array.length; i+=gap) {

@@ -23,7 +23,7 @@ public class SortingTest {
 		sortArray.sort();
 		System.out.println("3 - De forma ORDENADA por StraightInsertion ele é " + sortArray.stringSortedArray());
 		
-		sortArray2.sort(1);
+		sortArray2.sort(false);
 		System.out.println("4 - De forma ORDENADA por ShellSorting ele é " + sortArray2.stringSortedArray());
 		
 	}
