@@ -1,3 +1,7 @@
+//O construtor recebe um booleano
+//false ou vazio inicia com o método de tamanho padrão de sublista
+//true inicia com o método de Knuth, h = (3^k - 1) / 2
+
 
 public class ShellSorting extends SortingAlgorithms {
 	
@@ -24,13 +28,18 @@ public class ShellSorting extends SortingAlgorithms {
 		super.setSortedArray(this.array);
 	}
 	
+	public void sort() {
+		boolean kmethod = false;
+		sort(kmethod);
+	}
+	
 	private int knuthsMethod(int h) {
 		Double k = (Math.log( (2*h) + 1)/Math.log(3));
 		return k.intValue();
 	}
 	
 	private int getTamanhoSublista(boolean kmethod, int t) {
-		if (kmethod == true) {
+		if (kmethod == true && t > 1) {
 			t = knuthsMethod(t);
 			return t;
 		}
